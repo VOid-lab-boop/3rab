@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Complete Hooper System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #e5e7eb, #dbeafe);
+    }
+  </style>
+</head>
+<body class="text-gray-900">
+  <header class="bg-blue-900 text-white p-8 shadow-xl text-center">
+    <h1 class="text-5xl font-extrabold tracking-wide">🏀 The Complete Hooper System</h1>
+    <p class="text-xl mt-2">Elite Arabic Basketball Training Powered by AI</p>
+  </header>
+
+  <main class="p-6 md:p-12 space-y-16">
+    <!-- Highlights Section -->
+    <section class="text-center">
+      <h2 class="text-3xl font-bold text-blue-800 mb-4">🔥 Training Highlights</h2>
+      <div class="max-w-4xl mx-auto aspect-w-16 aspect-h-9">
+        <iframe class="w-full h-96 rounded-xl shadow-xl" src="https://www.youtube.com/embed/videoseries?list=PL8dPuuaLjXtNppY8ZHMPDH5TKK2UpU8Ng" title="Basketball Highlights Playlist" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- Course Pillars -->
+    <section>
+      <h2 class="text-3xl font-bold text-blue-800 mb-10 text-center">🏆 6 Pillars of Elite Performance</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Pillar Cards -->
+        <div class="bg-white p-6 rounded-2xl shadow-xl">
+          <img src="https://source.unsplash.com/400x250/?basketball,dribble" alt="Skill Mastery" class="rounded-xl mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-semibold mb-2">🧠 Skill Mastery</h3>
+          <p>Pro-level drills for dribbling, shooting, and footwork.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-xl">
+          <img src="https://source.unsplash.com/400x250/?basketball,coach" alt="Game IQ" class="rounded-xl mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-semibold mb-2">📊 Game IQ</h3>
+          <p>Learn play reading, decision making, and spacing principles.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-xl">
+          <img src="https://source.unsplash.com/400x250/?athlete,training" alt="Athletic Performance" class="rounded-xl mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-semibold mb-2">⚡ Athletic Performance</h3>
+          <p>Vertical leap, speed, strength and agility drills.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-xl">
+          <img src="https://source.unsplash.com/400x250/?focus,mindset" alt="Mental Toughness" class="rounded-xl mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-semibold mb-2">💪 Mental Toughness</h3>
+          <p>Build confidence, focus, and a winner’s mindset.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-xl">
+          <img src="https://source.unsplash.com/400x250/?nutrition,fitness" alt="Nutrition & Recovery" class="rounded-xl mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-semibold mb-2">🍎 Nutrition & Recovery</h3>
+          <p>Optimize fuel and rest for maximum performance.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl shadow-xl">
+          <img src="https://source.unsplash.com/400x250/?basketball,career" alt="Career Development" class="rounded-xl mb-4 w-full h-48 object-cover">
+          <h3 class="text-xl font-semibold mb-2">🎓 Career Development</h3>
+          <p>Prepare for scouts, scholarships, and global opportunities.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="text-center mt-16">
+      <h3 class="text-2xl font-bold mb-4">Join Our Hooper Family</h3>
+      <a href="#" class="bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow hover:bg-blue-800 transition">Start Training Now</a>
+    </section>
+  </main>
+
+  <!-- AI Chatbot -->
+  <script>
+    window.addEventListener('load', () => {
+      if (window.botpressWebChat) {
+        window.botpressWebChat.init({
+          botId: "YOUR_BOTPRESS_BOT_ID",
+          hostUrl: "https://cdn.botpress.cloud/webchat/v1",
+          messagingUrl: "https://messaging.botpress.cloud"
+        });
+      }
+    });
+  </script>
+</body>
+</html>
