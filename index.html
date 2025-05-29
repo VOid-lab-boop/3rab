@@ -1,95 +1,1365 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Complete Hooper System</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script defer src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
-  <style>
-    body {
-      background: linear-gradient(to bottom right, #e5e7eb, #dbeafe);
-    }
-  </style>
-</head>
-<body class="text-gray-900">
-  <header class="bg-blue-900 text-white p-8 shadow-xl text-center">
-    <h1 class="text-5xl font-extrabold tracking-wide">🏀 The Complete Hooper System</h1>
-    <p class="text-xl mt-2">Elite Arabic Basketball Training Powered by AI</p>
-  </header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoopMaster Pro | Basketball Training Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        secondary: '#FF6B35',
+                        dark: '#1A1A2E',
+                        light: '#F7F7FC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
 
-  <main class="p-6 md:p-12 space-y-16">
-    <!-- Highlights Section -->
-    <section class="text-center">
-      <h2 class="text-3xl font-bold text-blue-800 mb-4">🔥 Training Highlights</h2>
-      <div class="max-w-4xl mx-auto aspect-w-16 aspect-h-9">
-        <iframe class="w-full h-96 rounded-xl shadow-xl" src="https://www.youtube.com/embed/videoseries?list=PL8dPuuaLjXtNppY8ZHMPDH5TKK2UpU8Ng" title="Basketball Highlights Playlist" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <!-- Course Pillars -->
-    <section>
-      <h2 class="text-3xl font-bold text-blue-800 mb-10 text-center">🏆 6 Pillars of Elite Performance</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-
-        <!-- Pillar Cards -->
-        <div class="bg-white p-6 rounded-2xl shadow-xl">
-          <img src="https://source.unsplash.com/400x250/?basketball,dribble" alt="Skill Mastery" class="rounded-xl mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-semibold mb-2">🧠 Skill Mastery</h3>
-          <p>Pro-level drills for dribbling, shooting, and footwork.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-xl">
-          <img src="https://source.unsplash.com/400x250/?basketball,coach" alt="Game IQ" class="rounded-xl mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-semibold mb-2">📊 Game IQ</h3>
-          <p>Learn play reading, decision making, and spacing principles.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-xl">
-          <img src="https://source.unsplash.com/400x250/?athlete,training" alt="Athletic Performance" class="rounded-xl mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-semibold mb-2">⚡ Athletic Performance</h3>
-          <p>Vertical leap, speed, strength and agility drills.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-xl">
-          <img src="https://source.unsplash.com/400x250/?focus,mindset" alt="Mental Toughness" class="rounded-xl mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-semibold mb-2">💪 Mental Toughness</h3>
-          <p>Build confidence, focus, and a winner’s mindset.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-xl">
-          <img src="https://source.unsplash.com/400x250/?nutrition,fitness" alt="Nutrition & Recovery" class="rounded-xl mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-semibold mb-2">🍎 Nutrition & Recovery</h3>
-          <p>Optimize fuel and rest for maximum performance.</p>
-        </div>
-
-        <div class="bg-white p-6 rounded-2xl shadow-xl">
-          <img src="https://source.unsplash.com/400x250/?basketball,career" alt="Career Development" class="rounded-xl mb-4 w-full h-48 object-cover">
-          <h3 class="text-xl font-semibold mb-2">🎓 Career Development</h3>
-          <p>Prepare for scouts, scholarships, and global opportunities.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="text-center mt-16">
-      <h3 class="text-2xl font-bold mb-4">Join Our Hooper Family</h3>
-      <a href="#" class="bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold shadow hover:bg-blue-800 transition">Start Training Now</a>
-    </section>
-  </main>
-
-  <!-- AI Chatbot -->
-  <script>
-    window.addEventListener('load', () => {
-      if (window.botpressWebChat) {
-        window.botpressWebChat.init({
-          botId: "YOUR_BOTPRESS_BOT_ID",
-          hostUrl: "https://cdn.botpress.cloud/webchat/v1",
-          messagingUrl: "https://messaging.botpress.cloud"
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        // Listen for changes in color scheme preference
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
         });
-      }
-    });
-  </script>
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        .animate-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .basketball-bg {
+            background-image: radial-gradient(circle at 10px 10px, #FF6B35 2px, transparent 0), 
+                             radial-gradient(circle at 30px 30px, #FF6B35 2px, transparent 0),
+                             radial-gradient(circle at 50px 10px, #FF6B35 2px, transparent 0),
+                             radial-gradient(circle at 70px 30px, #FF6B35 2px, transparent 0),
+                             radial-gradient(circle at 90px 10px, #FF6B35 2px, transparent 0);
+            background-size: 100px 40px;
+            background-position: 0 0;
+            opacity: 0.1;
+        }
+        
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #5D5CDE;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4b4bba;
+        }
+        
+        .dark ::-webkit-scrollbar-track {
+            background: #2d2d3a;
+        }
+    </style>
+</head>
+<body class="bg-light dark:bg-dark text-gray-800 dark:text-gray-200 min-h-screen flex flex-col transition-colors duration-300 font-sans">
+    <!-- App Container with authentication state -->
+    <div id="app" class="flex flex-col min-h-screen">
+        <!-- Login/Register Screen (shown before auth) -->
+        <div id="auth-screen" class="flex-1 flex items-center justify-center p-4">
+            <div class="max-w-md w-full bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                <div class="relative h-32 bg-primary">
+                    <div class="absolute inset-0 basketball-bg"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <h1 class="text-3xl font-bold text-white">HoopMaster Pro</h1>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="text-center mb-6">
+                        <p class="text-gray-600 dark:text-gray-400">Sign in to access your training program</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white text-base" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+                            <input type="password" id="password" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white text-base" placeholder="••••••••">
+                        </div>
+                        <div>
+                            <button id="login-btn" class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-white bg-primary hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors duration-200 text-base font-medium">
+                                Sign In
+                            </button>
+                        </div>
+                        <div>
+                            <button id="demo-btn" class="w-full flex justify-center items-center py-3 px-4 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors duration-200 text-base font-medium">
+                                Demo Account
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 text-center text-sm">
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Don't have an account? 
+                            <button id="toggle-register" class="text-primary hover:text-primary-dark font-medium">
+                                Create an account
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main App (shown after auth) -->
+        <div id="main-app" class="hidden flex-1 flex flex-col">
+            <!-- Navigation -->
+            <nav class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-10 transition-colors duration-300">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex justify-between h-16">
+                        <div class="flex items-center">
+                            <a href="#" class="flex-shrink-0 flex items-center">
+                                <span class="text-primary font-bold text-xl">HoopMaster Pro</span>
+                            </a>
+                        </div>
+                        <div class="hidden md:flex items-center space-x-1">
+                            <a href="#dashboard" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">Dashboard</a>
+                            <a href="#courses" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">Courses</a>
+                            <a href="#tracking" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">Tracking</a>
+                            <a href="#ai-coach" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">AI Coach</a>
+                            <div class="relative ml-3">
+                                <button id="profile-menu-button" class="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+                                    <div class="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center">
+                                        <span id="profile-initial">J</span>
+                                    </div>
+                                    <span class="hidden md:inline-block">John D.</span>
+                                </button>
+                                <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-50 ring-1 ring-black ring-opacity-5">
+                                    <a href="#profile" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Your Profile</a>
+                                    <a href="#settings" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Settings</a>
+                                    <button id="logout-btn" class="w-full text-left block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">Sign out</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:hidden flex items-center">
+                            <button id="mobile-menu-button" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none">
+                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mobile menu -->
+                <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 transition-colors duration-300">
+                    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                        <a href="#dashboard" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">Dashboard</a>
+                        <a href="#courses" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">Courses</a>
+                        <a href="#tracking" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">Tracking</a>
+                        <a href="#ai-coach" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">AI Coach</a>
+                        <a href="#profile" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">Profile</a>
+                        <button id="mobile-logout-btn" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">Sign out</button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="flex-1">
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="py-8 animate-in">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+                            <div>
+                                <h1 class="text-2xl font-bold mb-2">Welcome back, <span id="user-name">John</span>!</h1>
+                                <p class="text-gray-600 dark:text-gray-400">Your basketball journey continues. <span id="streak-text">You're on a 7-day training streak!</span></p>
+                            </div>
+                            <div class="mt-4 md:mt-0">
+                                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md flex items-center space-x-4">
+                                    <div class="relative h-16 w-16">
+                                        <svg class="progress-ring h-16 w-16">
+                                            <circle
+                                                class="text-gray-200 dark:text-gray-700"
+                                                stroke-width="8"
+                                                stroke="currentColor"
+                                                fill="transparent"
+                                                r="28"
+                                                cx="32"
+                                                cy="32"
+                                            />
+                                            <circle
+                                                class="text-primary"
+                                                stroke-width="8"
+                                                stroke-linecap="round"
+                                                stroke="currentColor"
+                                                fill="transparent"
+                                                r="28"
+                                                cx="32"
+                                                cy="32"
+                                                stroke-dasharray="175.93"
+                                                stroke-dashoffset="52.78"
+                                            />
+                                        </svg>
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <span class="text-lg font-semibold">70%</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Today's Progress</p>
+                                        <p class="text-lg font-semibold">2 of 3 drills completed</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Daily Motivation Card -->
+                        <div class="bg-gradient-to-r from-primary to-blue-600 rounded-xl text-white p-6 shadow-lg mb-8">
+                            <div class="flex flex-col md:flex-row items-center">
+                                <div class="mb-4 md:mb-0 md:mr-6">
+                                    <div class="h-16 w-16 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
+                                        <i class="fas fa-bolt text-2xl"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold mb-2">Daily Motivation</h3>
+                                    <p class="text-white text-opacity-90 mb-3">"The difference between the impossible and the possible lies in a person's determination." - Tommy Lasorda</p>
+                                    <div class="flex items-center mt-2">
+                                        <div class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm">
+                                            <span id="login-days">7</span> days in a row
+                                        </div>
+                                        <div class="ml-3 flex space-x-1">
+                                            <span class="h-3 w-3 rounded-full bg-white"></span>
+                                            <span class="h-3 w-3 rounded-full bg-white"></span>
+                                            <span class="h-3 w-3 rounded-full bg-white"></span>
+                                            <span class="h-3 w-3 rounded-full bg-white"></span>
+                                            <span class="h-3 w-3 rounded-full bg-white"></span>
+                                            <span class="h-3 w-3 rounded-full bg-white"></span>
+                                            <span class="h-3 w-3 rounded-full bg-white"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Recommended Daily Training -->
+                        <div class="mb-8">
+                            <h2 class="text-xl font-bold mb-4">Today's Recommended Training</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                                <!-- Drill 1 -->
+                                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                                    <div class="h-40 bg-gray-200 dark:bg-gray-700 relative">
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <i class="fas fa-basketball-ball text-5xl text-gray-400 dark:text-gray-600"></i>
+                                        </div>
+                                        <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-medium">
+                                            COMPLETED
+                                        </div>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="flex items-center mb-2">
+                                            <span class="text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">ON-COURT SKILLS</span>
+                                        </div>
+                                        <h3 class="font-bold text-lg mb-1">Perfect Your Jump Shot</h3>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">30-minute shooting form workout with emphasis on balance and follow-through.</p>
+                                        <button class="w-full py-2 rounded bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200">
+                                            Review
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Drill 2 -->
+                                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                                    <div class="h-40 bg-gray-200 dark:bg-gray-700 relative">
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <i class="fas fa-running text-5xl text-gray-400 dark:text-gray-600"></i>
+                                        </div>
+                                        <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded text-xs font-medium">
+                                            COMPLETED
+                                        </div>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="flex items-center mb-2">
+                                            <span class="text-xs font-medium bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 px-2 py-1 rounded">CONDITIONING</span>
+                                        </div>
+                                        <h3 class="font-bold text-lg mb-1">Agility & Speed Circuit</h3>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">20-minute high-intensity circuit for explosive first step and lateral movement.</p>
+                                        <button class="w-full py-2 rounded bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200">
+                                            Review
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Drill 3 -->
+                                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                                    <div class="h-40 bg-gray-200 dark:bg-gray-700 relative">
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <i class="fas fa-brain text-5xl text-gray-400 dark:text-gray-600"></i>
+                                        </div>
+                                    </div>
+                                    <div class="p-4">
+                                        <div class="flex items-center mb-2">
+                                            <span class="text-xs font-medium bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded">GAME IQ</span>
+                                        </div>
+                                        <h3 class="font-bold text-lg mb-1">Court Vision Scenarios</h3>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">15-minute interactive session on reading defenses and making the right pass.</p>
+                                        <button class="w-full py-2 rounded bg-primary hover:bg-opacity-90 text-white font-medium transition-colors duration-200">
+                                            Start Training
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Weekly Goals Progress -->
+                        <div>
+                            <h2 class="text-xl font-bold mb-4">Weekly Goals Progress</h2>
+                            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <!-- Goal 1 -->
+                                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                        <h3 class="font-semibold text-lg mb-2">Free Throw %</h3>
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="text-gray-600 dark:text-gray-400">Current: 75%</span>
+                                            <span class="text-primary font-medium">Goal: 85%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                                            <div class="bg-primary h-2.5 rounded-full" style="width: 88%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Goal 2 -->
+                                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                        <h3 class="font-semibold text-lg mb-2">Vertical Jump</h3>
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="text-gray-600 dark:text-gray-400">Current: 26"</span>
+                                            <span class="text-primary font-medium">Goal: 30"</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                                            <div class="bg-primary h-2.5 rounded-full" style="width: 65%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Goal 3 -->
+                                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                        <h3 class="font-semibold text-lg mb-2">Training Hours</h3>
+                                        <div class="flex items-center justify-between mb-2">
+                                            <span class="text-gray-600 dark:text-gray-400">Current: 6h</span>
+                                            <span class="text-primary font-medium">Goal: 10h</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2.5">
+                                            <div class="bg-primary h-2.5 rounded-full" style="width: 60%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Courses Section -->
+                <section id="courses-section" class="hidden py-8 animate-in">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-2xl font-bold mb-6">The 6-Pillar Curriculum</h1>
+                        
+                        <!-- Course Pillars -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                            <!-- Pillar 1 -->
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105">
+                                <div class="h-3 bg-blue-500"></div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 dark:bg-blue-900 text-blue-500 mb-4">
+                                        <i class="fas fa-basketball-ball text-lg"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-3">On-Court Skill Mastery</h3>
+                                    <p class="text-gray-600 dark:text-gray-400 mb-4">Elite drills for shooting, finishing, handles, defense, footwork with daily routines and weekly skill tests.</p>
+                                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Video demos with slow-mo breakdowns
+                                        </li>
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Progressive skill building
+                                        </li>
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Weekly skill assessments
+                                        </li>
+                                    </ul>
+                                    <button class="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors duration-200">
+                                        Explore Modules
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Pillar 2 -->
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105">
+                                <div class="h-3 bg-yellow-500"></div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-yellow-100 dark:bg-yellow-900 text-yellow-500 mb-4">
+                                        <i class="fas fa-brain text-lg"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-3">Game IQ & Decision-Making</h3>
+                                    <p class="text-gray-600 dark:text-gray-400 mb-4">AI-assisted situational play with game film analysis and choose-your-move challenges.</p>
+                                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Spacing, timing, off-ball movement
+                                        </li>
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Interactive quiz challenges
+                                        </li>
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Pro decision analysis
+                                        </li>
+                                    </ul>
+                                    <button class="w-full py-3 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg font-medium transition-colors duration-200">
+                                        Explore Modules
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Pillar 3 -->
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105">
+                                <div class="h-3 bg-green-500"></div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-green-100 dark:bg-green-900 text-green-500 mb-4">
+                                        <i class="fas fa-chart-line text-lg"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-3">AI-Powered Performance Analysis</h3>
+                                    <p class="text-gray-600 dark:text-gray-400 mb-4">Upload your clips for instant AI feedback on shooting form, speed, and court vision.</p>
+                                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Detailed form analysis
+                                        </li>
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Performance metrics
+                                        </li>
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Personalized drill recommendations
+                                        </li>
+                                    </ul>
+                                    <button class="w-full py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition-colors duration-200">
+                                        Explore Modules
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Pillar 4 -->
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105">
+                                <div class="h-3 bg-indigo-500"></div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-indigo-100 dark:bg-indigo-900 text-indigo-500 mb-4">
+                                        <i class="fas fa-chart-bar text-lg"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-3">Player Tracking & Smart Goals</h3>
+                                    <p class="text-gray-600 dark:text-gray-400 mb-4">Personalized dashboard with shooting tracker, benchmarks, and progress reports.</p>
+                                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Data-driven goal setting
+                                        </li>
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Visual progress tracking
+                                        </li>
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Player leaderboards
+                                        </li>
+                                    </ul>
+                                    <button class="w-full py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg font-medium transition-colors duration-200">
+                                        Explore Modules
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Pillar 5 -->
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105">
+                                <div class="h-3 bg-purple-500"></div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-purple-100 dark:bg-purple-900 text-purple-500 mb-4">
+                                        <i class="fas fa-dumbbell text-lg"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-3">Physical Conditioning & Recovery</h3>
+                                    <p class="text-gray-600 dark:text-gray-400 mb-4">Pro-level training programs for vertical, agility, speed, and basketball-specific nutrition.</p>
+                                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Sport-specific training
+                                        </li>
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Recovery protocols
+                                        </li>
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Nutrition plans
+                                        </li>
+                                    </ul>
+                                    <button class="w-full py-3 bg-purple-500 hover:bg-purple-600 text-white rounded-lg font-medium transition-colors duration-200">
+                                        Explore Modules
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Pillar 6 -->
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:transform hover:scale-105">
+                                <div class="h-3 bg-red-500"></div>
+                                <div class="p-6">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-full bg-red-100 dark:bg-red-900 text-red-500 mb-4">
+                                        <i class="fas fa-medal text-lg"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold mb-3">Mindset, Confidence & Leadership</h3>
+                                    <p class="text-gray-600 dark:text-gray-400 mb-4">Mental training modules for focus, pre-game rituals, visualization, and leadership skills.</p>
+                                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Mental performance techniques
+                                        </li>
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Team leadership training
+                                        </li>
+                                        <li class="flex items-center">
+                                            <svg class="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                            </svg>
+                                            Recruiting guidance
+                                        </li>
+                                    </ul>
+                                    <button class="w-full py-3 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium transition-colors duration-200">
+                                        Explore Modules
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bonus Features -->
+                        <h2 class="text-xl font-bold mb-4">Bonus Features</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- CourtTalk App -->
+                            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border-l-4 border-primary">
+                                <div class="flex items-center mb-4">
+                                    <div class="h-10 w-10 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-primary mr-3">
+                                        <i class="fas fa-comment-dots"></i>
+                                    </div>
+                                    <h3 class="font-bold text-lg">CourtTalk App</h3>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Talk to AI Coach, get training plan of the day, and receive personalized feedback on your progress.</p>
+                                <a href="#ai-coach" class="text-primary font-medium hover:underline inline-flex items-center">
+                                    Access AI Coach
+                                    <svg class="h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <!-- RecruitMe Profile -->
+                            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border-l-4 border-green-500">
+                                <div class="flex items-center mb-4">
+                                    <div class="h-10 w-10 rounded-full bg-green-500 bg-opacity-20 flex items-center justify-center text-green-500 mr-3">
+                                        <i class="fas fa-id-card"></i>
+                                    </div>
+                                    <h3 class="font-bold text-lg">RecruitMe Profile</h3>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Build a recruiting-ready player profile with highlight video templates, stats, and bio information.</p>
+                                <a href="#profile" class="text-green-500 font-medium hover:underline inline-flex items-center">
+                                    Setup Profile
+                                    <svg class="h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <!-- 30-Day Lock-In Challenge -->
+                            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border-l-4 border-yellow-500">
+                                <div class="flex items-center mb-4">
+                                    <div class="h-10 w-10 rounded-full bg-yellow-500 bg-opacity-20 flex items-center justify-center text-yellow-500 mr-3">
+                                        <i class="fas fa-fire"></i>
+                                    </div>
+                                    <h3 class="font-bold text-lg">30 Day Lock-In Challenge</h3>
+                                </div>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">Intensive 4-week plan to reset habits and go beast mode with daily challenges and rewards.</p>
+                                <button class="text-yellow-500 font-medium hover:underline inline-flex items-center">
+                                    Join Challenge
+                                    <svg class="h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Player Tracking Section -->
+                <section id="tracking-section" class="hidden py-8 animate-in">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-2xl font-bold mb-6">Player Tracking Dashboard</h1>
+                        
+                        <!-- Stats Overview -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+                            <h2 class="text-lg font-semibold mb-4">Performance Overview</h2>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <!-- Shooting % -->
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">Shooting %</span>
+                                        <span class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded-full">+3.2%</span>
+                                    </div>
+                                    <div class="flex items-end">
+                                        <span class="text-2xl font-bold">42.7%</span>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400 ml-2 mb-1">FG%</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Free Throw % -->
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">Free Throw %</span>
+                                        <span class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded-full">+5.0%</span>
+                                    </div>
+                                    <div class="flex items-end">
+                                        <span class="text-2xl font-bold">75.0%</span>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400 ml-2 mb-1">FT%</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Vertical Jump -->
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">Vertical Jump</span>
+                                        <span class="text-xs bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded-full">+1.5"</span>
+                                    </div>
+                                    <div class="flex items-end">
+                                        <span class="text-2xl font-bold">26"</span>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400 ml-2 mb-1">inches</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Training Hours -->
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <div class="flex items-center justify-between mb-2">
+                                        <span class="text-sm text-gray-500 dark:text-gray-400">Training Hours</span>
+                                        <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full">This Week</span>
+                                    </div>
+                                    <div class="flex items-end">
+                                        <span class="text-2xl font-bold">6.5</span>
+                                        <span class="text-sm text-gray-500 dark:text-gray-400 ml-2 mb-1">hours</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Progress Charts -->
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                            <!-- Shooting Progress Chart -->
+                            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                                <h2 class="text-lg font-semibold mb-4">Shooting Progress</h2>
+                                <div class="h-64 flex items-center justify-center">
+                                    <div class="w-full h-full flex items-end justify-around">
+                                        <div class="relative flex flex-col items-center">
+                                            <div class="h-40 w-12 bg-blue-100 dark:bg-blue-900 rounded-t-lg relative overflow-hidden">
+                                                <div class="absolute bottom-0 w-full bg-blue-500 h-[35%]"></div>
+                                            </div>
+                                            <span class="mt-2 text-xs text-gray-500 dark:text-gray-400">Week 1</span>
+                                            <span class="absolute bottom-[calc(40px+0.5rem)] text-xs font-medium">35%</span>
+                                        </div>
+                                        <div class="relative flex flex-col items-center">
+                                            <div class="h-40 w-12 bg-blue-100 dark:bg-blue-900 rounded-t-lg relative overflow-hidden">
+                                                <div class="absolute bottom-0 w-full bg-blue-500 h-[38%]"></div>
+                                            </div>
+                                            <span class="mt-2 text-xs text-gray-500 dark:text-gray-400">Week 2</span>
+                                            <span class="absolute bottom-[calc(40px+0.5rem)] text-xs font-medium">38%</span>
+                                        </div>
+                                        <div class="relative flex flex-col items-center">
+                                            <div class="h-40 w-12 bg-blue-100 dark:bg-blue-900 rounded-t-lg relative overflow-hidden">
+                                                <div class="absolute bottom-0 w-full bg-blue-500 h-[40%]"></div>
+                                            </div>
+                                            <span class="mt-2 text-xs text-gray-500 dark:text-gray-400">Week 3</span>
+                                            <span class="absolute bottom-[calc(40px+0.5rem)] text-xs font-medium">40%</span>
+                                        </div>
+                                        <div class="relative flex flex-col items-center">
+                                            <div class="h-40 w-12 bg-blue-100 dark:bg-blue-900 rounded-t-lg relative overflow-hidden">
+                                                <div class="absolute bottom-0 w-full bg-blue-500 h-[41%]"></div>
+                                            </div>
+                                            <span class="mt-2 text-xs text-gray-500 dark:text-gray-400">Week 4</span>
+                                            <span class="absolute bottom-[calc(41px+0.5rem)] text-xs font-medium">41%</span>
+                                        </div>
+                                        <div class="relative flex flex-col items-center">
+                                            <div class="h-40 w-12 bg-blue-100 dark:bg-blue-900 rounded-t-lg relative overflow-hidden">
+                                                <div class="absolute bottom-0 w-full bg-blue-500 h-[42.7%]"></div>
+                                            </div>
+                                            <span class="mt-2 text-xs text-gray-500 dark:text-gray-400">Current</span>
+                                            <span class="absolute bottom-[calc(42.7px+0.5rem)] text-xs font-medium">42.7%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Vertical Jump Progress -->
+                            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                                <h2 class="text-lg font-semibold mb-4">Vertical Jump Progress</h2>
+                                <div class="h-64 flex items-center justify-center">
+                                    <div class="w-full h-full flex items-end justify-around">
+                                        <div class="relative flex flex-col items-center">
+                                            <div class="h-40 w-12 bg-purple-100 dark:bg-purple-900 rounded-t-lg relative overflow-hidden">
+                                                <div class="absolute bottom-0 w-full bg-purple-500 h-[60%]"></div>
+                                            </div>
+                                            <span class="mt-2 text-xs text-gray-500 dark:text-gray-400">Week 1</span>
+                                            <span class="absolute bottom-[calc(60px+0.5rem)] text-xs font-medium">24"</span>
+                                        </div>
+                                        <div class="relative flex flex-col items-center">
+                                            <div class="h-40 w-12 bg-purple-100 dark:bg-purple-900 rounded-t-lg relative overflow-hidden">
+                                                <div class="absolute bottom-0 w-full bg-purple-500 h-[61.25%]"></div>
+                                            </div>
+                                            <span class="mt-2 text-xs text-gray-500 dark:text-gray-400">Week 2</span>
+                                            <span class="absolute bottom-[calc(61.25px+0.5rem)] text-xs font-medium">24.5"</span>
+                                        </div>
+                                        <div class="relative flex flex-col items-center">
+                                            <div class="h-40 w-12 bg-purple-100 dark:bg-purple-900 rounded-t-lg relative overflow-hidden">
+                                                <div class="absolute bottom-0 w-full bg-purple-500 h-[62.5%]"></div>
+                                            </div>
+                                            <span class="mt-2 text-xs text-gray-500 dark:text-gray-400">Week 3</span>
+                                            <span class="absolute bottom-[calc(62.5px+0.5rem)] text-xs font-medium">25"</span>
+                                        </div>
+                                        <div class="relative flex flex-col items-center">
+                                            <div class="h-40 w-12 bg-purple-100 dark:bg-purple-900 rounded-t-lg relative overflow-hidden">
+                                                <div class="absolute bottom-0 w-full bg-purple-500 h-[63.75%]"></div>
+                                            </div>
+                                            <span class="mt-2 text-xs text-gray-500 dark:text-gray-400">Week 4</span>
+                                            <span class="absolute bottom-[calc(63.75px+0.5rem)] text-xs font-medium">25.5"</span>
+                                        </div>
+                                        <div class="relative flex flex-col items-center">
+                                            <div class="h-40 w-12 bg-purple-100 dark:bg-purple-900 rounded-t-lg relative overflow-hidden">
+                                                <div class="absolute bottom-0 w-full bg-purple-500 h-[65%]"></div>
+                                            </div>
+                                            <span class="mt-2 text-xs text-gray-500 dark:text-gray-400">Current</span>
+                                            <span class="absolute bottom-[calc(65px+0.5rem)] text-xs font-medium">26"</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Skill Breakdown -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+                            <h2 class="text-lg font-semibold mb-4">Skill Breakdown</h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <!-- Shooting -->
+                                    <div class="mb-4">
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">Shooting</span>
+                                            <span class="text-sm font-medium">73%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                            <div class="bg-primary h-2.5 rounded-full" style="width: 73%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Ball Handling -->
+                                    <div class="mb-4">
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">Ball Handling</span>
+                                            <span class="text-sm font-medium">65%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                            <div class="bg-primary h-2.5 rounded-full" style="width: 65%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Defense -->
+                                    <div class="mb-4">
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">Defense</span>
+                                            <span class="text-sm font-medium">80%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                            <div class="bg-primary h-2.5 rounded-full" style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <!-- Court Vision -->
+                                    <div class="mb-4">
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">Court Vision</span>
+                                            <span class="text-sm font-medium">68%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                            <div class="bg-primary h-2.5 rounded-full" style="width: 68%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Speed/Agility -->
+                                    <div class="mb-4">
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">Speed/Agility</span>
+                                            <span class="text-sm font-medium">82%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                            <div class="bg-primary h-2.5 rounded-full" style="width: 82%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Basketball IQ -->
+                                    <div class="mb-4">
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">Basketball IQ</span>
+                                            <span class="text-sm font-medium">70%</span>
+                                        </div>
+                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+                                            <div class="bg-primary h-2.5 rounded-full" style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Upload Analysis Section -->
+                        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                            <h2 class="text-lg font-semibold mb-4">Upload for AI Analysis</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">Upload your training videos to get AI-powered feedback on your form, speed, and decision-making.</p>
+                            <div class="border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                                <div class="mt-4 flex text-sm text-gray-600 dark:text-gray-400 justify-center">
+                                    <label for="file-upload" class="relative cursor-pointer bg-white dark:bg-gray-700 rounded-md font-medium text-primary hover:text-primary-dark focus-within:outline-none">
+                                        <span>Upload a file</span>
+                                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                    </label>
+                                    <p class="pl-1">or drag and drop</p>
+                                </div>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">MP4, MOV up to 100MB</p>
+                            </div>
+                            <div class="mt-4">
+                                <button class="w-full py-3 bg-primary hover:bg-opacity-90 text-white rounded-lg font-medium transition-colors duration-200">
+                                    Analyze My Game
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AI Coach Section -->
+                <section id="ai-coach-section" class="hidden py-8 animate-in">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h1 class="text-2xl font-bold mb-6">AI Basketball Coach</h1>
+                        
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                            <!-- AI Chat Interface -->
+                            <div class="lg:col-span-2">
+                                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden flex flex-col h-[600px]">
+                                    <div class="p-4 bg-primary text-white">
+                                        <div class="flex items-center">
+                                            <div class="h-10 w-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center mr-3">
+                                                <i class="fas fa-robot"></i>
+                                            </div>
+                                            <div>
+                                                <h2 class="font-bold">Coach AI</h2>
+                                                <p class="text-sm text-white text-opacity-80">Your personal basketball trainer</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Chat messages -->
+                                    <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4">
+                                        <!-- AI Message -->
+                                        <div class="flex items-start">
+                                            <div class="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0 mr-3">
+                                                <i class="fas fa-robot text-sm"></i>
+                                            </div>
+                                            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg py-2 px-3 max-w-[85%]">
+                                                <p class="text-gray-800 dark:text-gray-200">Welcome back, John! I see you've completed 2 of your 3 drills today. Great work! How can I help you with your training today?</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- User Message -->
+                                        <div class="flex items-start justify-end">
+                                            <div class="bg-primary rounded-lg py-2 px-3 max-w-[85%]">
+                                                <p class="text-white">I'm struggling with my jump shot consistency. Any tips?</p>
+                                            </div>
+                                            <div class="h-8 w-8 rounded-full bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 flex items-center justify-center flex-shrink-0 ml-3">
+                                                <span id="chat-initial">J</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- AI Message -->
+                                        <div id="ai-response" class="flex items-start">
+                                            <div class="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0 mr-3">
+                                                <i class="fas fa-robot text-sm"></i>
+                                            </div>
+                                            <div class="bg-gray-100 dark:bg-gray-700 rounded-lg py-2 px-3 max-w-[85%]">
+                                                <p class="text-gray-800 dark:text-gray-200">Based on your recent shooting data, I've noticed a few things:</p>
+                                                <ol class="list-decimal ml-5 mt-2 space-y-1 text-gray-800 dark:text-gray-200">
+                                                    <li>Your elbow alignment is inconsistent</li>
+                                                    <li>Your follow-through sometimes cuts short</li>
+                                                    <li>Your balance shifts slightly on longer shots</li>
+                                                </ol>
+                                                <p class="mt-2 text-gray-800 dark:text-gray-200">I recommend focusing on the "Perfect Form" drill in Pillar 1, and try the "Balance Board Shooting" exercise to improve stability. Would you like me to add these to your training plan for tomorrow?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Chat input -->
+                                    <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+                                        <form id="chat-form" class="flex items-center">
+                                            <input type="text" id="chat-input" class="flex-1 border border-gray-300 dark:border-gray-600 rounded-lg py-3 px-4 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:text-white text-base" placeholder="Ask Coach AI...">
+                                            <button type="submit" class="ml-3 bg-primary hover:bg-opacity-90 text-white rounded-lg p-3 transition-colors duration-200">
+                                                <i class="fas fa-paper-plane"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- AI Coach Features -->
+                            <div class="space-y-6">
+                                <!-- Quick Actions -->
+                                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                                    <h2 class="text-lg font-semibold mb-4">Quick Actions</h2>
+                                    <div class="space-y-3">
+                                        <button class="w-full text-left py-3 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center">
+                                            <i class="fas fa-calendar-alt mr-3 text-primary"></i>
+                                            <span>Get today's training plan</span>
+                                        </button>
+                                        <button class="w-full text-left py-3 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center">
+                                            <i class="fas fa-chart-line mr-3 text-primary"></i>
+                                            <span>Analyze my progress</span>
+                                        </button>
+                                        <button class="w-full text-left py-3 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center">
+                                            <i class="fas fa-dumbbell mr-3 text-primary"></i>
+                                            <span>Recommend exercises</span>
+                                        </button>
+                                        <button class="w-full text-left py-3 px-4 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center">
+                                            <i class="fas fa-video mr-3 text-primary"></i>
+                                            <span>Review my technique</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Coach's Tips -->
+                                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                                    <h2 class="text-lg font-semibold mb-4">Coach's Tips</h2>
+                                    <div class="bg-yellow-50 dark:bg-yellow-900 dark:bg-opacity-30 rounded-lg p-4 border-l-4 border-yellow-500">
+                                        <h3 class="font-medium text-yellow-800 dark:text-yellow-200">Tip of the Day</h3>
+                                        <p class="text-sm text-yellow-700 dark:text-yellow-300 mt-1">When practicing your jump shot, focus on the same routine every time. Consistency in your pre-shot routine leads to consistency in your shooting.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Video Analysis -->
+                                <div class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg shadow-md p-6 text-white">
+                                    <h2 class="text-lg font-semibold mb-2">AI Video Analysis</h2>
+                                    <p class="text-sm text-white text-opacity-90 mb-4">Upload your game footage and get detailed AI analysis of your performance.</p>
+                                    <button class="w-full py-2 bg-white text-indigo-600 rounded-lg font-medium hover:bg-opacity-90 transition-colors duration-200">
+                                        Start Analysis
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Footer -->
+            <footer class="bg-gray-100 dark:bg-gray-800 mt-auto transition-colors duration-300">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    <div class="md:flex md:items-center md:justify-between">
+                        <div class="flex justify-center md:justify-start">
+                            <span class="text-primary font-bold text-xl">HoopMaster Pro</span>
+                        </div>
+                        <div class="mt-4 md:mt-0">
+                            <p class="text-center md:text-right text-gray-600 dark:text-gray-400">
+                                &copy; 2024 HoopMaster Pro. All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const app = document.getElementById('app');
+        const authScreen = document.getElementById('auth-screen');
+        const mainApp = document.getElementById('main-app');
+        const dashboardSection = document.getElementById('dashboard-section');
+        const coursesSection = document.getElementById('courses-section');
+        const trackingSection = document.getElementById('tracking-section');
+        const aiCoachSection = document.getElementById('ai-coach-section');
+        
+        const loginBtn = document.getElementById('login-btn');
+        const demoBtn = document.getElementById('demo-btn');
+        const logoutBtn = document.getElementById('logout-btn');
+        const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const profileMenuButton = document.getElementById('profile-menu-button');
+        const profileDropdown = document.getElementById('profile-dropdown');
+        
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+        
+        // Daily login streak counter
+        let loginStreak = 7;
+        
+        // Motivation quotes
+        const motivationQuotes = [
+            "\"The difference between the impossible and the possible lies in a person's determination.\" - Tommy Lasorda",
+            "\"Hard work beats talent when talent doesn't work hard.\" - Tim Notke",
+            "\"You can't get much done in life if you only work on the days when you feel good.\" - Jerry West",
+            "\"If you train hard, you'll not only be hard, you'll be hard to beat.\" - Herschel Walker",
+            "\"Good, better, best. Never let it rest. Until your good is better and your better is best.\" - Tim Duncan",
+            "\"Excellence is not a singular act, but a habit. You are what you repeatedly do.\" - Shaquille O'Neal",
+            "\"I've failed over and over and over again in my life. And that is why I succeed.\" - Michael Jordan"
+        ];
+        
+        // Function to show a specific section
+        function showSection(section) {
+            // Hide all sections
+            dashboardSection.classList.add('hidden');
+            coursesSection.classList.add('hidden');
+            trackingSection.classList.add('hidden');
+            aiCoachSection.classList.add('hidden');
+            
+            // Show the requested section
+            section.classList.remove('hidden');
+        }
+        
+        // Handle navigation clicks
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+                
+                // Determine which section to show
+                const sectionId = this.getAttribute('href').substring(1);
+                switch(sectionId) {
+                    case 'dashboard':
+                        showSection(dashboardSection);
+                        break;
+                    case 'courses':
+                        showSection(coursesSection);
+                        break;
+                    case 'tracking':
+                        showSection(trackingSection);
+                        break;
+                    case 'ai-coach':
+                        showSection(aiCoachSection);
+                        break;
+                    case 'profile':
+                        // For demo purposes, just show the dashboard
+                        showSection(dashboardSection);
+                        break;
+                    default:
+                        showSection(dashboardSection);
+                }
+            });
+        });
+        
+        // Mobile menu toggle
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Profile dropdown toggle
+        profileMenuButton.addEventListener('click', () => {
+            profileDropdown.classList.toggle('hidden');
+        });
+        
+        // Close dropdown when clicking outside
+        window.addEventListener('click', (e) => {
+            if (!profileMenuButton.contains(e.target) && !profileDropdown.contains(e.target)) {
+                profileDropdown.classList.add('hidden');
+            }
+        });
+        
+        // Login functionality (demo)
+        loginBtn.addEventListener('click', () => {
+            // Simulate login - in a real app, this would validate credentials
+            authScreen.classList.add('hidden');
+            mainApp.classList.remove('hidden');
+            showSection(dashboardSection);
+        });
+        
+        // Demo account login
+        demoBtn.addEventListener('click', () => {
+            authScreen.classList.add('hidden');
+            mainApp.classList.remove('hidden');
+            showSection(dashboardSection);
+        });
+        
+        // Logout functionality
+        logoutBtn.addEventListener('click', () => {
+            mainApp.classList.add('hidden');
+            authScreen.classList.remove('hidden');
+        });
+        
+        // Mobile logout
+        mobileLogoutBtn.addEventListener('click', () => {
+            mainApp.classList.add('hidden');
+            authScreen.classList.remove('hidden');
+        });
+        
+        // AI Chat form submission
+        if (chatForm) {
+            chatForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const userMessage = chatInput.value.trim();
+                if (!userMessage) return;
+                
+                // Add user message to chat
+                const userMessageElement = document.createElement('div');
+                userMessageElement.className = 'flex items-start justify-end';
+                userMessageElement.innerHTML = `
+                    <div class="bg-primary rounded-lg py-2 px-3 max-w-[85%]">
+                        <p class="text-white">${userMessage}</p>
+                    </div>
+                    <div class="h-8 w-8 rounded-full bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-300 flex items-center justify-center flex-shrink-0 ml-3">
+                        <span>J</span>
+                    </div>
+                `;
+                chatMessages.appendChild(userMessageElement);
+                
+                // Clear input
+                chatInput.value = '';
+                
+                // Auto scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Add loading indicator
+                const loadingElement = document.createElement('div');
+                loadingElement.className = 'flex items-start';
+                loadingElement.innerHTML = `
+                    <div class="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0 mr-3">
+                        <i class="fas fa-robot text-sm"></i>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-700 rounded-lg py-2 px-3 max-w-[85%]">
+                        <p class="text-gray-800 dark:text-gray-200">
+                            <span class="inline-block animate-pulse">Thinking...</span>
+                        </p>
+                    </div>
+                `;
+                chatMessages.appendChild(loadingElement);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                try {
+                    // In a real implementation, this would use the Poe API
+                    // For now, we'll simulate a response after a delay
+                    if (window.Poe) {
+                        // Register handler to process the bot's response
+                        window.Poe.registerHandler("basketball-coach-handler", (result, context) => {
+                            if (result.status === "complete" || result.status === "error") {
+                                // Remove loading indicator
+                                chatMessages.removeChild(loadingElement);
+                                
+                                if (result.status === "error") {
+                                    // Show error message
+                                    const errorElement = document.createElement('div');
+                                    errorElement.className = 'flex items-start';
+                                    errorElement.innerHTML = `
+                                        <div class="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0 mr-3">
+                                            <i class="fas fa-robot text-sm"></i>
+                                        </div>
+                                        <div class="bg-red-100 dark:bg-red-900 rounded-lg py-2 px-3 max-w-[85%]">
+                                            <p class="text-red-800 dark:text-red-200">Sorry, I couldn't process your request. Please try again.</p>
+                                        </div>
+                                    `;
+                                    chatMessages.appendChild(errorElement);
+                                } else {
+                                    // Get the response content
+                                    const response = result.responses[0].content;
+                                    
+                                    // Add AI response to chat
+                                    const aiResponseElement = document.createElement('div');
+                                    aiResponseElement.className = 'flex items-start';
+                                    aiResponseElement.innerHTML = `
+                                        <div class="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0 mr-3">
+                                            <i class="fas fa-robot text-sm"></i>
+                                        </div>
+                                        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg py-2 px-3 max-w-[85%]">
+                                            <p class="text-gray-800 dark:text-gray-200">${response}</p>
+                                        </div>
+                                    `;
+                                    chatMessages.appendChild(aiResponseElement);
+                                }
+                                
+                                // Auto scroll to bottom
+                                chatMessages.scrollTop = chatMessages.scrollHeight;
+                            }
+                        });
+                        
+                        // Send message to Claude
+                        await window.Poe.sendUserMessage(
+                            `@Claude-3.7-Sonnet You are an expert basketball coach. Respond to this question from a player: ${userMessage}`,
+                            {
+                                handler: "basketball-coach-handler",
+                                stream: false,
+                                openChat: false
+                            }
+                        );
+                    } else {
+                        // Fallback for when Poe API is not available (testing/demo)
+                        setTimeout(() => {
+                            // Remove loading indicator
+                            chatMessages.removeChild(loadingElement);
+                            
+                            // Sample responses based on common questions
+                            let aiResponse = "I understand your question. Let me break down how you can improve:";
+                            
+                            if (userMessage.toLowerCase().includes("jump shot") || userMessage.toLowerCase().includes("shooting")) {
+                                aiResponse = "To improve your jump shot consistency, focus on these three areas:\n\n1. Balance - Keep your feet shoulder-width apart and square to the basket\n2. Elbow Alignment - Keep your shooting elbow under the ball and aligned with the basket\n3. Follow Through - Hold your follow-through until the ball hits the rim\n\nThe 'Form Shooting' drill in Pillar 1 would be perfect for you. Start close to the basket and gradually move back as your form improves.";
+                            } else if (userMessage.toLowerCase().includes("dribble") || userMessage.toLowerCase().includes("handle")) {
+                                aiResponse = "To improve your ball handling, I recommend:\n\n1. Two-ball dribbling drills to develop both hands equally\n2. Figure-8 drills between your legs to improve control\n3. Change-of-pace and direction drills to simulate game situations\n\nSpend 15-20 minutes daily on these fundamentals. The 'Advanced Handles' module in Pillar 1 has excellent progression drills you can follow.";
+                            } else if (userMessage.toLowerCase().includes("defense")) {
+                                aiResponse = "Defensive improvement comes down to:\n\n1. Footwork - Practice defensive slides and recovery steps daily\n2. Positioning - Always position yourself between your man and the basket\n3. Anticipation - Study offensive tendencies to predict movements\n\nThe 'Lockdown Defender' series in Pillar 1 includes great drills for all these aspects. Would you like me to assign you the first module?";
+                            } else if (userMessage.toLowerCase().includes("vertical") || userMessage.toLowerCase().includes("jump")) {
+                                aiResponse = "To increase your vertical jump:\n\n1. Focus on plyometric exercises like box jumps and depth jumps\n2. Strengthen your posterior chain with deadlifts and hip thrusts\n3. Work on your fast-twitch muscle fibers with explosive movements\n\nThe 'Vertical Leap' program in Pillar 5 has a progressive 8-week plan that's shown great results. Combined with proper nutrition and recovery, you could add 3-5 inches to your vertical.";
+                            }
+                            
+                            // Add AI response to chat
+                            const aiResponseElement = document.createElement('div');
+                            aiResponseElement.className = 'flex items-start';
+                            aiResponseElement.innerHTML = `
+                                <div class="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0 mr-3">
+                                    <i class="fas fa-robot text-sm"></i>
+                                </div>
+                                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg py-2 px-3 max-w-[85%]">
+                                    <p class="text-gray-800 dark:text-gray-200">${aiResponse}</p>
+                                </div>
+                            `;
+                            chatMessages.appendChild(aiResponseElement);
+                            
+                            // Auto scroll to bottom
+                            chatMessages.scrollTop = chatMessages.scrollHeight;
+                        }, 1500);
+                    }
+                } catch (error) {
+                    console.error("Error sending message:", error);
+                    // Remove loading indicator
+                    chatMessages.removeChild(loadingElement);
+                    
+                    // Show error message
+                    const errorElement = document.createElement('div');
+                    errorElement.className = 'flex items-start';
+                    errorElement.innerHTML = `
+                        <div class="h-8 w-8 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0 mr-3">
+                            <i class="fas fa-robot text-sm"></i>
+                        </div>
+                        <div class="bg-red-100 dark:bg-red-900 rounded-lg py-2 px-3 max-w-[85%]">
+                            <p class="text-red-800 dark:text-red-200">Sorry, there was an error processing your request. Please try again.</p>
+                        </div>
+                    `;
+                    chatMessages.appendChild(errorElement);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            });
+        }
+        
+        // Initialize app
+        function initApp() {
+            // Update login streak display
+            document.getElementById('login-days').textContent = loginStreak;
+            
+            // Set random motivation quote
+            const randomQuote = motivationQuotes[Math.floor(Math.random() * motivationQuotes.length)];
+            const motivationElement = document.querySelector('.bg-gradient-to-r p.text-white');
+            if (motivationElement) {
+                motivationElement.textContent = randomQuote;
+            }
+            
+            // File upload handling
+            const fileUpload = document.getElementById('file-upload');
+            if (fileUpload) {
+                fileUpload.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                        // In a real app, you would upload the file to a server or process it
+                        console.log(`File selected: ${file.name}`);
+                        alert(`File "${file.name}" selected for analysis. In a real application, this would be processed for AI analysis.`);
+                    }
+                });
+            }
+        }
+        
+        // Call init on page load
+        window.addEventListener('DOMContentLoaded', initApp);
+    </script>
 </body>
 </html>
